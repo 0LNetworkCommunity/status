@@ -1,9 +1,10 @@
 import axios from 'axios'
 import { TESTNET_SEED_NODES } from '../constants'
-import { apiUrl, apiUrlNote } from '../store'
+import { apiReady, apiUrl, apiUrlNote } from '../store'
 import type { EventObj, ViewObj } from './payloads/types'
 
-const DEBUG_URL: string = 'https://rpc.openlibra.space:8080/v1/'
+// const DEBUG_URL: string = 'https://rpc.openlibra.space:8080/v1/'
+const DEBUG_URL: string = 'http://99.145.200.98:8080/v1/'
 
 export let api
 
@@ -16,6 +17,7 @@ export const initApi = async () => {
   apiUrl.set(url)
   apiUrlNote.set(note)
 
+  apiReady.set(true)
   return { apiUrl, note }
 }
 
@@ -94,8 +96,10 @@ export const postViewFunc = async (payload: ViewObj) => {
       return r.data
     })
     .catch((e) => {
-      console.error(`Failed to get view fn: ${payload.function}, message: ${e.message}`)
-      throw e
+      console.error(
+        `Failed to get view fn: ${payload.function}, args: ${payload.arguments} message: ${e.message}`,
+      )
+      // throw e
     })
 }
 

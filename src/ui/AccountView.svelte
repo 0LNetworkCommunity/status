@@ -1,7 +1,8 @@
 <script lang="ts">
   import Card from './Card.svelte'
   import AccountTable from './AccountTable.svelte'
-  import { fetchUserAccounts, selectedAccount } from '../store'
+  import { selectedAccount } from '../store'
+  import { fetchUserAccounts } from '../store/get_system_info'
 
 
 </script>

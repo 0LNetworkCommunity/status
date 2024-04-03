@@ -29,6 +29,21 @@ export interface SystemInfo {
   boundary_status: object
 }
 
+export interface SupplyData {
+  final: number
+  total: number
+  burn: number
+  infra: number
+  comm: number
+  slow: number
+  user: number
+  circulating: number
+}
+
+export interface User {
+  address: string
+}
+
 export interface ProofOfFee {
   val_universe: string[]
   bidders: string[]
@@ -66,9 +81,9 @@ export interface govEventData {
 }
 
 export interface Transaction {
-  sender: string,
-  receiver: string,
-  amount: number,
-  ledger_version: number,
-  ledger_timestamp: number,
+  sender: string
+  receiver: string
+  amount: number
+  ledger_version: number
+  ledger_timestamp: number
 }

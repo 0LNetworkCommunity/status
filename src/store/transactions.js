@@ -35,17 +35,17 @@ async function getTransactionDetail(version) {
   )
   return data.payload.arguments
 }
-let isFetching = false;
+let isFetching = false
 export async function fetchTransactions() {
-  if (isFetching) return;
-  const endTime = (Date.now() - 3 * 24 * 60 * 60 * 1000) * 1_000;
-  const minAmount = 1_000 * 1e6;
+  if (isFetching) return
+  const endTime = (Date.now() - 3 * 24 * 60 * 60 * 1000) * 1_000
+  const minAmount = 1_000 * 1e6
   const limit = 200
   let page = 0
   const { size } = await queryTransactions(0, 1)
   const totalPage = Math.ceil(size / limit)
   let allTransferList = []
-  isFetching = true;
+  isFetching = true
   for (page = 0; page < totalPage; page++) {
     try {
       const { items } = await queryTransactions(page * limit, limit)
@@ -53,8 +53,7 @@ export async function fetchTransactions() {
         break
       }
       let transferList = items.filter(
-        (item) =>
-          item.functionName === 'transfer' && item.success && item.timestamp >= endTime,
+        (item) => item.functionName === 'transfer' && item.success && item.timestamp >= endTime,
       )
 
       const details = await Promise.all(
@@ -71,7 +70,7 @@ export async function fetchTransactions() {
           ledger_timestamp: item.timestamp.toString(),
         }
       })
-      allTransferList = allTransferList.concat(transferList.filter(t => t.amount >= minAmount));
+      allTransferList = allTransferList.concat(transferList.filter((t) => t.amount >= minAmount))
       console.log(`${page + 1}/${totalPage}`)
     } catch (error) {
       console.log('Fetch error, will retry after 3s')

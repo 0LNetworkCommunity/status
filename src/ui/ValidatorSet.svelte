@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { fetchUserAccounts, systemInfo, valDataStore } from '../store'
+  import { systemInfo, valDataStore } from '../store'
+  import { fetchUserAccounts } from '../store/get_system_info'
   import type { UserAccount } from '../types'
   import AccountTable from './AccountTable.svelte'
   import { scaleCoin } from '../utils/coin'

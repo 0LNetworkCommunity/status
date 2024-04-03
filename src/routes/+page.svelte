@@ -3,13 +3,10 @@
 
   import { onMount } from 'svelte'
   import { initApi, setApi } from '../api'
-  import { refresh, selectedAccount, apiUrl, apiUrlNote } from '../store'
-  import SystemInfo from '../ui/SystemInfo.svelte'
-  import Validators from '../ui/Validators.svelte'
-  import AccountView from '../ui/AccountView.svelte'
-  import BoundaryStatus from '../ui/BoundaryStatus.svelte'
-  // import GovEvents from '../ui/GovEvents.svelte'
-  import TransactionTable from '../ui/TransactionTable.svelte'
+  import { apiUrl, apiUrlNote } from '../store'
+  import { refresh } from '../store/get_system_info'
+  import Supply from '../ui/Supply.svelte'
+
   onMount(async () => {
     await initApi() // ONLY DO THIS ONCE ON LOAD
 
@@ -17,7 +14,7 @@
 
     setInterval(
       refresh,
-      30000, // 30 secs
+      60000, // 60 secs
     )
   })
 </script>
@@ -40,13 +37,15 @@
         {/if}
       </div>
     </div>
-    <div class="uk-flex">
+            <Supply />
+
+    <!-- <div class="uk-flex">
       {#if $selectedAccount && $selectedAccount.address}
         <AccountView />
       {:else}
         <SystemInfo />
         <BoundaryStatus />
-        <!-- <GovEvents/> -->
+        <GovEvents/>
       {/if}
     </div>
     <div class="uk-flex">
@@ -54,5 +53,6 @@
     </div>
     <div class="uk-flex">
       <TransactionTable />
-  </div>
+    </div>
+  </div> -->
 </main>
