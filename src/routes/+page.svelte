@@ -3,9 +3,14 @@
 
   import { onMount } from 'svelte'
   import { initApi, setApi } from '../api'
-  import { apiUrl, apiUrlNote } from '../store'
+  import { apiUrl, apiUrlNote, selectedAccount } from '../store'
   import { refresh } from '../store/get_system_info'
   import Supply from '../ui/Supply.svelte'
+  import AccountView from '../ui/AccountView.svelte'
+  import SystemInfo from '../ui/SystemInfo.svelte'
+  import BoundaryStatus from '../ui/BoundaryStatus.svelte'
+  import GovEvents from '../ui/GovEvents.svelte'
+  import Validators from '../ui/Validators.svelte'
 
   onMount(async () => {
     await initApi() // ONLY DO THIS ONCE ON LOAD
@@ -37,22 +42,22 @@
         {/if}
       </div>
     </div>
-            <Supply />
+    <Supply />
 
-    <!-- <div class="uk-flex">
+    <div class="uk-flex">
       {#if $selectedAccount && $selectedAccount.address}
         <AccountView />
       {:else}
         <SystemInfo />
         <BoundaryStatus />
-        <GovEvents/>
+        <GovEvents />
       {/if}
     </div>
     <div class="uk-flex">
       <Validators />
     </div>
-    <div class="uk-flex">
+    <!-- <div class="uk-flex">
       <TransactionTable />
-    </div>
-  </div> -->
+    </div> -->
+  </div>
 </main>

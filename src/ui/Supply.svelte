@@ -1,7 +1,6 @@
 <script lang="ts">
   import Card from './Card.svelte'
   import { supplyStore } from '../store'
-  import { onMount } from 'svelte'
 
 </script>
 

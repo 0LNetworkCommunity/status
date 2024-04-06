@@ -8,7 +8,7 @@ import * as commonPayloads from '../api/payloads/common'
 import { govEvents } from '../api/payloads/events'
 import { fetchTransactions } from './transactions.js'
 import { govStore, indexDataStore, systemInfo, valDataStore } from '.'
-import { populateSupply } from './get_supply'
+import { populateSupply, supplySimple } from './get_supply'
 
 export const getIndexData = async () => {
   try {
@@ -123,7 +123,8 @@ export const refresh = async () => {
   try {
 
     getIndexData()
-    populateSupply()
+    // populateSupply()
+    supplySimple()
     getSystemInfo()
     getValidators()
     fetchTransactions()
