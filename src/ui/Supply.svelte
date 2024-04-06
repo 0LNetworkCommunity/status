@@ -23,14 +23,14 @@
         </p>
         <p>
           Slow Supply: {$supplyStore.slow.toLocaleString() ?? 0}
-          ({(($supplyStore.slow / $supplyStore.total) * 100).toFixed(0)}% of total) ({(
+          ({(($supplyStore.slow / $supplyStore.total) * 100).toFixed(1)}% of total) ({(
             ($supplyStore.slow / $supplyStore.user) *
             100
           ).toFixed(0)}% of user)
         </p>
         <p>
           Circulating Supply: {$supplyStore.circulating.toLocaleString() ?? 0}
-          ({(($supplyStore.circulating / $supplyStore.total) * 100).toFixed(0)}% of total) ({(
+          ({(($supplyStore.circulating / $supplyStore.total) * 100).toFixed(1)}% of total) ({(
             ($supplyStore.circulating / $supplyStore.user) *
             100
           ).toFixed(0)}% of user)
