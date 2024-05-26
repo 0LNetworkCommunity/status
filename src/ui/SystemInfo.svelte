@@ -29,8 +29,6 @@
         <li>Epoch Duration: {$systemInfo.epoch_duration}</li>
       </ul>
       <ul>
-        <li>VDF Difficulty: {$systemInfo.vdf[0]}</li>
-        <li>VDF Security: {$systemInfo.vdf[1]}</li>
         <li>Infra Escrow: {scaleCoin($systemInfo.infra_escrow)}</li>
 
       </ul>

@@ -25,7 +25,6 @@ export interface SystemInfo {
   git_hash: string
   infra_escrow: number
   validator_seats: number
-  vdf: number[]
   boundary_status: object
 }
 
