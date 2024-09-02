@@ -11,18 +11,18 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^2.0.3",
-    "@sveltejs/kit": "^1.22.6",
-    "@sveltejs/vite-plugin-svelte": "^2.4.5",
-    "@typescript-eslint/eslint-plugin": "^6.5.0",
-    "@typescript-eslint/parser": "^6.5.0",
-    "eslint": "^8.48.0",
-    "eslint-plugin-svelte": "^2.33.0",
+    "@sveltejs/kit": "^1.30.4",
+    "@sveltejs/vite-plugin-svelte": "^2.5.3",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-svelte": "^2.43.0",
     "gh-pages": "^5.0.0",
-    "prettier": "^3.0.2",
-    "prettier-plugin-svelte": "^3.0.3",
-    "svelte": "^4.2.0",
-    "svelte-check": "^3.5.0",
-    "vite": "^4.4.9"
+    "prettier": "^3.3.3",
+    "prettier-plugin-svelte": "^3.2.6",
+    "svelte": "^4.2.19",
+    "svelte-check": "^3.8.6",
+    "vite": "^4.5.3"
   },
   "prettier": {
     "printWidth": 100,
@@ -30,10 +30,9 @@
     "singleQuote": true
   },
   "dependencies": {
-    "axios": "^1.5.0",
-    "moment": "^2.29.4",
-    "node-fetch": "^3.3.2",
-    "uikit": "^3.16.26",
+    "axios": "^1.7.7",
+    "moment": "^2.30.1",
+    "uikit": "^3.21.10",
     "uikit-icons": "^0.5.0"
   }
 }

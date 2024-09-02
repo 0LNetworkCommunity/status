@@ -8,7 +8,7 @@ import * as commonPayloads from '../api/payloads/common'
 import { govEvents } from '../api/payloads/events'
 import { fetchTransactions } from './transactions.js'
 import { govStore, indexDataStore, systemInfo, valDataStore } from '.'
-import { populateSupply, supplySimple } from './get_supply'
+import { supplySimple } from './get_supply'
 
 export const getIndexData = async () => {
   try {
@@ -121,7 +121,6 @@ export const getSystemInfo = async () => {
 // Function to refresh all data
 export const refresh = async () => {
   try {
-
     getIndexData()
     // populateSupply()
     supplySimple()

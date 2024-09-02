@@ -8,16 +8,16 @@ export const supplySimple = async (): Promise<SupplyData> => {
     function: '0x1::supply::get_stats',
     arguments: [],
     type_arguments: [],
-  });
-  console.log(supply_query);
+  })
+  console.log(supply_query)
 
   const total = supply_query[0] / COIN_SCALING
-  const burn = (FINAL_SUPPLY - total)
+  const burn = FINAL_SUPPLY - total
   const infra = supply_query[3] / COIN_SCALING
   const comm = supply_query[2] / COIN_SCALING
   const slow = supply_query[1] / COIN_SCALING
   const circulating = supply_query[4] / COIN_SCALING
-  const user = (slow + circulating)
+  const user = slow + circulating
   const s = {
     final: FINAL_SUPPLY,
     total,
