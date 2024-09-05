@@ -84,13 +84,12 @@ export const getSystemInfo = async () => {
     const requests = [
       postViewFunc(systemPayloads.fees_collected_payload),
       postViewFunc(systemPayloads.epoch_length_payload),
-      postViewFunc(systemPayloads.vdf_difficulty),
       postViewFunc(systemPayloads.infra_balance),
       getAccountResource('0x1', '0x1::musical_chairs::Chairs'),
       getAccountResource('0x1', '0x1::epoch_boundary::BoundaryStatus'),
       getAccountResource('0x1', '0x1::proof_of_fee::ConsensusReward'),
     ]
-    const [fees, epochResponse, vdfDifficulty, infraBalance, chairs, boundaryStatus, cr] =
+    const [fees, epochResponse, infraBalance, chairs, boundaryStatus, cr] =
       await Promise.all(requests)
 
     const duration = moment.duration(Number(epochResponse[0]), 'seconds') // Cast to Number
@@ -102,7 +101,6 @@ export const getSystemInfo = async () => {
       consensus_reward: cr.nominal_reward,
       fees: fees[0],
       epoch_duration: epoch,
-      vdf: vdfDifficulty,
       infra_escrow: infraBalance[0],
       validator_seats: chairs.seats_offered,
       boundary_status: boundaryStatus,
